@@ -1,0 +1,40 @@
+-------------------------------------------------------------
+-------------------------------------------------------------
+CPU type:	Intel Core Westmere processor 
+CPU clock:	2.80 GHz 
+-------------------------------------------------------------
+Measuring group FLOPS_DP
+
+=====================
+Region: Método 
+=====================
++-------------------+----------+
+|    Region Info    |  core 6  |
++-------------------+----------+
+| RDTSC Runtime [s] | 0.089215 |
+|    call count     |    1     |
++-------------------+----------+
++--------------------------------------+-------------+
+|                Event                 |   core 6    |
++--------------------------------------+-------------+
+|          INSTR_RETIRED_ANY           | 2.91192e+08 |
+|        CPU_CLK_UNHALTED_CORE         | 2.81097e+08 |
+|         CPU_CLK_UNHALTED_REF         | 2.46196e+08 |
+|    FP_COMP_OPS_EXE_SSE_FP_PACKED     |      0      |
+|    FP_COMP_OPS_EXE_SSE_FP_SCALAR     | 2.79068e+07 |
+| FP_COMP_OPS_EXE_SSE_SINGLE_PRECISION |      0      |
+| FP_COMP_OPS_EXE_SSE_DOUBLE_PRECISION | 2.79068e+07 |
++--------------------------------------+-------------+
++----------------------+----------+
+|        Metric        |  core 6  |
++----------------------+----------+
+| Runtime (RDTSC) [s]  | 0.089215 |
+| Runtime unhalted [s] | 0.100387 |
+|     Clock [MHz]      | 3197.08  |
+|         CPI          | 0.965332 |
+|     DP MFlops/s      | 312.804  |
+|    Packed MUOPS/s    |    0     |
+|    Scalar MUOPS/s    | 312.804  |
+|      SP MUOPS/s      |    0     |
+|      DP MUOPS/s      | 312.804  |
++----------------------+----------+

@@ -1,0 +1,41 @@
+-------------------------------------------------------------
+-------------------------------------------------------------
+CPU type:	Intel Core Westmere processor 
+CPU clock:	2.80 GHz 
+-------------------------------------------------------------
+Measuring group MEM
+
+=====================
+Region: Método 
+=====================
++-------------------+----------+
+|    Region Info    |  core 6  |
++-------------------+----------+
+| RDTSC Runtime [s] | 0.108061 |
+|    call count     |    1     |
++-------------------+----------+
++--------------------------------+-------------+
+|             Event              |   core 6    |
++--------------------------------+-------------+
+|       INSTR_RETIRED_ANY        | 2.91309e+08 |
+|     CPU_CLK_UNHALTED_CORE      | 3.00117e+08 |
+|      CPU_CLK_UNHALTED_REF      | 3.00116e+08 |
+|    UNC_QMC_NORMAL_READS_ANY    |    69530    |
+|    UNC_QMC_WRITES_FULL_ANY     |    36837    |
+| UNC_QHL_REQUESTS_REMOTE_READS  |    1122     |
+|  UNC_QHL_REQUESTS_LOCAL_READS  |    77700    |
+| UNC_QHL_REQUESTS_REMOTE_WRITES |      0      |
++--------------------------------+-------------+
++-----------------------------+------------+
+|           Metric            |   core 6   |
++-----------------------------+------------+
+|     Runtime (RDTSC) [s]     |  0.108061  |
+|    Runtime unhalted [s]     |  0.107179  |
+|         Clock [MHz]         |  2800.16   |
+|             CPI             |  1.03024   |
+| Memory bandwidth [MBytes/s] |  62.9965   |
+| Memory data volume [GBytes] | 0.00680749 |
+|  Remote Read BW [MBytes/s]  |  0.664512  |
+| Remote Write BW [MBytes/s]  |     0      |
+|    Remote BW [MBytes/s]     |  0.664512  |
++-----------------------------+------------+

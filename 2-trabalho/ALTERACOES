@@ -1,0 +1,20 @@
+Alterações que estão sendo feitas (do trab-1 para trab-2):
+
+- Substituição das matrizes dinâmicas X e B por vetores estáticos.
+- Retirada de cálculos repetidos dentro do método e resíduo.
+- Loop Unroll.
+
+
+-------------------------------------------
+Likwid no código:
+ * Como as configurações das servidoras para o computador pessoal são diferentes, tem que ajustar o caminho e descomentar likwid.h .
+
+
+******************************
+Programa executa.sh
+
+- Gera 10 execuções de um dado tamanho e coloca em um dado caminho, contendo (para cada):
+  * likwid FLOPS_DP
+  * likwid CACHE
+  * likwid MEM
+  * arquivo de saida -> formato gnuplot

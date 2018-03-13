@@ -1,0 +1,50 @@
+/*##################################################################################
+# UFPR - Universidade Federal do Paraná                        										 #
+# DINF - Departamento de Informática                            									 #
+#                                                               									 #
+# Matéria: Iniciação a Computação Científica - CÓD CI164        									 #
+# Profº Daniel Weingaertner                                     									 #
+#                                                               									 #
+# Alunos: 																							 #
+#					Clarissa Dreischerf Pereira														 #					
+#					Jonatan Otávio Korello 			               									 #
+#								                                    								 #
+##################################################################################*/
+
+		1. Arquivos do Diretório
+		
+	GaussSeidel.c: Caso o método escolhido seja o Gauss Seidel (GS) então as operações listadas neste arquivo serão as executadas.
+	main.c: Arquivo com as operações iniciais do programa. Define os parâmetos e escolhe o método a ser executado.
+	Makefile: regras de compilação dos arquivos do trabalho.
+	pdeSolver.c: conjunto de funções auxiliares dos métodos, por exemplo: timestamp, inicialização das estruturas e impressão de dados.
+	pdeSolver.h: header file que agrega as bibliotecas utilizadas e os protótipos das funções.
+	Sor.c: Se o método for então o SOR, então as operações deste arquivo serão as executadas.
+	
+	
+		2. Algoritmos e Estruturas de Dados
+		
+		2.1 Estrutura dos Dados
+				Os principais dados armazanedados foram:
+				a. Matriz dos Pontos: Ao recebermos os valores de nx e ny, sabemos quantos pontos existem dentro da nossa PDE. Esta matriz possui (ny+2) linhas e (nx+2) colunas. As linhas e colunas adicionais são para armazenarmos os valores externos (valores nas fronteiras ou sobre os eixos). Como havíamos optado por trabalhar com matrizes bidimensionais (pelo menos para essa primeira parte) tivemos que alterar nossa alocação de estática para dinâmica, devido a passagem de parâmetros para as funções internas (inicializa e imprime);
+				
+				b. Vetor de Resíduo: Precisamos calcular o valor do resíduo a cada iteração, para depois imprimirmos o valor no arquivo de saída. Contudo, não podemos simplesmente imprimir o valor do resíduo diretamente no arquivo pois precisamos ANTES imprimir o tempo dos métodos e o tempo médio do cálculo do resíduo. Por isso optamos por armazenar o valor de cada resíduo;
+				
+				c. Vetores Fx e Fy: Visto que nas operações de ambos os métodos nós usamos muito as funções sin(2*pi*y) e sinh(2*pi*x), nós decidimos salvar TODOS estes valores antecipadamente, ao invés de ter que calcular a cada novo ponto para toda iteração (além disso, um mesmo valor de fx ou fy pode ser usado por vários outros pontos).
+				
+		2.2 Algoritmo
+				2.2.1 Métodos
+				Para colocar a fórmula dos métodos tivemos apenas a demora na interpretação da questão. Após isso, conseguimos colocar, sem grandes dificuldades. Tentamos colocar no código na mesma ordem das fórmulas, para facilitar entendimento. Em ambos os métodos, nós primeiro calculamos os elementos auxiliares (por exemplo os vetores fx e fy citados anteriormente, os valores de hx² e hy², entre outros), para evitar repetições desnecessárias e então inicializamos nossas estruturas básicas. Após isso vem a diferenciação dos métodos.  
+        
+        	a. Gauss-Seidel:
+          	O algoritmo deste método apenas aplica a 'fórmula do ponto' usando os valores (aproximações, podemos assim dizer) atuais da nossa matriz de pontos (X[][]). O método irá percorrer o 'stencil' e a cada ponto (variação de x e y, usando hx e hy) calculamos o novo valor do ponto atual.
+          
+        	b. Successive Over Relaxation:
+						O funcionamento deste método é muito similar ao anterior. A diferença é que o valor calculado do ponto atual, exatamente pelas mesma operações do Gauss Seidel, será primeiramente multiplicado pelo fator de relaxação (w) e depois somado a uma variação do seu valor anterior - variação está que é calculada por (1-w)*valor anterior. Em outras palavras:
+						x(k+1) = (1-w)*x(k) + w*(cálculo Gauss Seidel).
+						
+        2.2.2 Cálculo da Norma do Resíduo:
+				Por fim, calcular o valor do resíduo de cada ponto a cada iteração. Essa soma será salva no nosso vetor de resíduos para posterior impressão. O cálculo é igual para ambos os métodos:
+					- calculamos o valor de fx,y (que nós calculamos anteriormente para evitar repetições);
+					- subtraímos a 'fórmula' obtida com as diferenças finitas. 
+				O cálculo do resíduo é feito logo após o cálculo do novo valor do ponto, ao invés de esperar o método terminar e passar por toda a matriz de novo. 	
+				
